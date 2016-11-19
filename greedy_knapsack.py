@@ -1,4 +1,3 @@
-print('blah')
 
 
 def greedy_knapsack(item_count: int, capacity: int, items: object, approach: str) -> object:
