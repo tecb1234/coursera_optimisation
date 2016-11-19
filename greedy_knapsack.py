@@ -30,4 +30,4 @@ def greedy_knapsack(item_count: int, capacity: int, items: object, approach: str
     return x
 
 
-print(greedy_knapsack(1, 1, 1, "value"))
+
