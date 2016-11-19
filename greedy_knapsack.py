@@ -16,13 +16,10 @@ def greedy_knapsack(item_count: int, capacity: int, items: list, approach: str) 
 
         sorted_items = sorted(items, key = attrgetter('value'), reverse = True)
 
-        x = items
-
     elif approach == "smallest":
         # choose the smallest items first
 
         sorted_items = sorted(items, key = attrgetter('weight'))
-        x = sorted_items
 
     elif approach == "value_to_weight":
         # choose the items with best value to weight ratio first
@@ -34,26 +31,20 @@ def greedy_knapsack(item_count: int, capacity: int, items: list, approach: str) 
 
         sorted_items = sorted(items, key = attrgetter('value_to_weight'), reverse = True)
 
-
-        x = items[3]
     else:
         # something has gone wrong
-        x = items[4]
+        x = "error"
 
     # now do something with the sorted_items
     value = 0
     weight = 0
     taken = [0]*len(items)
-    sorted_taken = [0]*len(items)
 
     for item in sorted_items:
         if weight + item.weight <= capacity:
             taken[item.index] = 1
             weight += item.weight
             value += item.value
-
-    # for index in sorted_items:
-    #     taken[item.index] = sorted_taken[index]
 
     # make the output
     output_data = str(value) + ' ' + str(0) + '\n'
